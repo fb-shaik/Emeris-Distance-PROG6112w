@@ -15,9 +15,9 @@ public class Cat extends Pet implements Adopt
     
     private String colour;
 
-    public Cat(String name, int age, String colour) {
+    public Cat(String rescueID, String name, int age, String colour) {
 
-        super(name, age);
+        super(rescueID, name, age);
 
         this.colour = colour;
     }

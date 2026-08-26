@@ -21,18 +21,26 @@ classes.
  */
 public abstract class Pet 
 {
+    private String rescueID;
     private String name;
     private int age;
     
     //constructor
-    public Pet(String n, int a)
+    public Pet(String resID, String n, int a)
     {
+        this.rescueID = resID;
         this.name = n;
         setAge(a);
         
     }
     
     //getters
+    public String getRescueID()
+    {
+        return rescueID;
+    }
+    
+    
     public String getName()
     {
         return name;
@@ -82,6 +90,38 @@ public abstract class Pet
     public String toString()//from the Object class
     {
         return "Pet Name: " + name + ", Age: " + age;
+    }
+    
+    @Override
+    public boolean equals(Object compareObject)//the parameter is of the Object class
+    {
+        //if statement to compare the object
+        //Are these references pointing to the exact same object?
+        if(this == compareObject)
+        {
+            return true;
+        }
+        
+        //check that the compare object is not empty
+        if (compareObject == null)
+        {
+            return false;
+        }
+        
+        
+        //check if we are comparing like objects 
+        //check if the object compared is an instance of the Pet class
+        //"comparing apples with apples"
+        if(!(compareObject instanceof Pet))
+        {
+            return false;
+        }
+        
+        //
+        Pet other = (Pet) compareObject;
+        
+        return rescueID.equals(other.rescueID);
+      
     }
     
     
