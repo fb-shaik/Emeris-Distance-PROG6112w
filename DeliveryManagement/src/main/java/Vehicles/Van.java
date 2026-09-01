@@ -11,7 +11,8 @@ package Vehicles;
 public class Van extends DeliveryVehicle
 {
     private int capacity;
-
+    
+    //Constructor
     public Van(String vehicleId, String driverName, String deliveryStatus, int capacity)
     {
 
@@ -19,7 +20,8 @@ public class Van extends DeliveryVehicle
 
         this.capacity = capacity;
     }
-
+    
+    //getter
     public int getCapacity()
     {
         return capacity;
@@ -42,10 +44,9 @@ public class Van extends DeliveryVehicle
     }
 
     @Override
-    public void trackVehicle()
+    public void trackVehicle() //interface method
     {
 
-        System.out.println("Tracking van " + getVehicleId()
-        );
+        System.out.println("Tracking van " + getVehicleId());
     }
 }

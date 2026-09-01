@@ -10,8 +10,9 @@ package Vehicles;
  */
 public class Truck extends DeliveryVehicle
 {
-     private double maximumWeight;
+    private double maximumWeight;
 
+    //Constructor
     public Truck(String vehicleId, String driverName, String deliveryStatus, double maximumWeight)
     {
 
@@ -20,11 +21,13 @@ public class Truck extends DeliveryVehicle
         this.maximumWeight = maximumWeight;
     }
 
+    //getter
     public double getMaximumWeight()
     {
         return maximumWeight;
     }
 
+    
     @Override
     public void deliverPackage()
     {
@@ -42,12 +45,10 @@ public class Truck extends DeliveryVehicle
     }
 
     @Override
-    public void trackVehicle()
+    public void trackVehicle() //Interface
     {
 
-        System.out.println(
-            "Tracking truck " +
-            getVehicleId()
+        System.out.println("Tracking truck " + getVehicleId()
         );
     }
 }
