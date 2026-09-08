@@ -4,6 +4,9 @@
  */
 package Vehicles;
 import Interfaces.Trackable;
+import Exceptions.InvalidCapacityException;
+import Exceptions.InvalidVehicleIDException;
+import Exceptions.VehicleNotAvailableException;
 
      
 /**
@@ -18,11 +21,26 @@ public abstract class DeliveryVehicle implements Trackable
     private String deliveryStatus;
     
     //Constructor
-    public DeliveryVehicle(String vID, String dName, String delStatus)
+    public DeliveryVehicle(String vID, String dName, String delStatus) throws InvalidVehicleIDException
     {
+                
+        validateVehicleId(vehicleId);
         this.vehicleId = vID;
         this.driverName = dName;
         this.deliveryStatus = delStatus;
+                    
+                
+    }
+    
+    private void validateVehicleId(String vehicleId) throws InvalidVehicleIDException
+    {
+        
+                {
+                    if (vehicleId == null || vehicleId.isBlank())
+                    {
+                        throw new InvalidVehicleIDException("Vehicle ID cannot be empty.");
+                    }
+                }
     }
     
     //getters
@@ -48,8 +66,14 @@ public abstract class DeliveryVehicle implements Trackable
     }
 
     // Common superclass method 
-    public void startDelivery()
+    public void startDelivery() throws VehicleNotAvailableException
     {
+        if(!deliveryStatus.equalsIgnoreCase("Available"))
+        {
+            throw new VehicleNotAvailableException(
+            "Vehicle " + vehicleId + " is currently not available");
+        }
+        
         System.out.println(
             driverName + " has started a delivery."
         );

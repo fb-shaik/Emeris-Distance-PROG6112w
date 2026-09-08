@@ -1,5 +1,22 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+What to do when the system may encounter invalid situations?
+- Vehicle ID is empty
+- Van capacity is negative
+- Truck weight is invalid
+- Vehicle is unavailable
+- User enters letters instead of a number (data validation)
+
+EXCEPTION HANDLING
+- try
+- catch
+- finally
+- throw
+- throws
+Custom exceptions
+Input validation
+Tracing exceptions through the call stack
+
  */
 
 package com.mycompany.deliverymanagement;
