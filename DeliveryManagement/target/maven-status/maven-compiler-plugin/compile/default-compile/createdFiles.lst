@@ -1,6 +1,9 @@
-Vehicles\Truck.class
+Exceptions\InvalidVehicleIDException.class
 Interfaces\Trackable.class
 Vehicles\Van.class
+Exceptions\VehicleNotAvailableException.class
 Vehicles\DeliveryVehicle.class
 Vehicles\Motorcycle.class
+Vehicles\Truck.class
+Exceptions\InvalidCapacityException.class
 com\mycompany\deliverymanagement\DeliveryManagement.class

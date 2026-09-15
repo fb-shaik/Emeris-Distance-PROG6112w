@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Vehicles;
+import Exceptions.InvalidVehicleIDException;
+import Exceptions.InvalidCapacityException;
 
 /**
  *
@@ -13,12 +15,12 @@ public class Van extends DeliveryVehicle
     private int capacity;
     
     //Constructor
-    public Van(String vehicleId, String driverName, String deliveryStatus, int capacity)
+    public Van(String vehicleId, String driverName, String deliveryStatus, int capacity) throws InvalidVehicleIDException, InvalidCapacityException 
     {
 
         super(vehicleId, driverName, deliveryStatus);
 
-        this.capacity = capacity;
+        setCapacity(capacity);
     }
     
     //getter
@@ -26,6 +28,17 @@ public class Van extends DeliveryVehicle
     {
         return capacity;
     }
+    
+    //setter: called when the user provides a value for the van's capacity
+    public void setCapacity(int capacity) throws InvalidCapacityException
+    {
+        if (capacity <= 0)
+        {
+            throw new InvalidCapacityException("The van's capacity must be greater than zero.");
+        }
+        this.capacity = capacity;
+    }
+    
 
     @Override
     public void deliverPackage()

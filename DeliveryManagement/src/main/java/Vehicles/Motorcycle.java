@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Vehicles;
+import Exceptions.InvalidVehicleIDException;
 
 /**
  *
@@ -13,7 +14,8 @@ public class Motorcycle extends DeliveryVehicle
     
     private boolean hasDeliveryBox;
     
-    public Motorcycle(String vehicleId, String driverName, String deliveryStatus, boolean hasDeliveryBox)
+    public Motorcycle(String vehicleId, String driverName, String deliveryStatus, boolean hasDeliveryBox) throws InvalidVehicleIDException
+            
     {
         super(vehicleId, driverName, deliveryStatus);
         this.hasDeliveryBox = hasDeliveryBox;

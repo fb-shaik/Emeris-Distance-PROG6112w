@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Vehicles;
+import Exceptions.InvalidCapacityException;
+import Exceptions.InvalidVehicleIDException;
+
 
 /**
  *
@@ -13,18 +16,32 @@ public class Truck extends DeliveryVehicle
     private double maximumWeight;
 
     //Constructor
-    public Truck(String vehicleId, String driverName, String deliveryStatus, double maximumWeight)
+    public Truck(String vehicleId, String driverName, String deliveryStatus, double maximumWeight) throws InvalidVehicleIDException, InvalidCapacityException 
     {
 
         super(vehicleId, driverName, deliveryStatus);
+        
+        setMaximumWeight(maximumWeight);
+        
 
-        this.maximumWeight = maximumWeight;
+        //this.maximumWeight = maximumWeight;
     }
 
     //getter
     public double getMaximumWeight()
     {
         return maximumWeight;
+    }
+    
+    //setter: accepts the value of the truck's maximum weight
+    public void setMaximumWeight(double maximumWeight) throws InvalidCapacityException
+    {
+        if(maximumWeight <=0)
+        {
+            throw new InvalidCapacityException("Truck maximum weight " + "must be greater than zero.");
+        }
+        
+        this.maximumWeight = maximumWeight;
     }
 
     

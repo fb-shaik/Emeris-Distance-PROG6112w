@@ -24,7 +24,8 @@ public abstract class DeliveryVehicle implements Trackable
     public DeliveryVehicle(String vID, String dName, String delStatus) throws InvalidVehicleIDException
     {
                 
-        validateVehicleId(vehicleId);
+        validateVehicleId(vID); //This validates the vehicle ID
+        
         this.vehicleId = vID;
         this.driverName = dName;
         this.deliveryStatus = delStatus;
