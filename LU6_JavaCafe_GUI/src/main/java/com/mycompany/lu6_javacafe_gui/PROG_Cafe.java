@@ -52,7 +52,7 @@ public class PROG_Cafe extends javax.swing.JFrame {
         file_Menu = new javax.swing.JMenu();
         saveMenu_Item = new javax.swing.JMenuItem();
         display_Menu = new javax.swing.JMenu();
-        displayMenu_Item = new javax.swing.JMenuItem();
+        displayMenu = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,14 +146,24 @@ public class PROG_Cafe extends javax.swing.JFrame {
         file_Menu.setText("File");
 
         saveMenu_Item.setText("Save to text file");
+        saveMenu_Item.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveMenu_ItemActionPerformed(evt);
+            }
+        });
         file_Menu.add(saveMenu_Item);
 
         jMenuBar1.add(file_Menu);
 
         display_Menu.setText("Order Details");
+        display_Menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                display_MenuActionPerformed(evt);
+            }
+        });
 
-        displayMenu_Item.setText("Display order details");
-        display_Menu.add(displayMenu_Item);
+        displayMenu.setText("Display order details");
+        display_Menu.add(displayMenu);
 
         jMenuBar1.add(display_Menu);
 
@@ -176,13 +186,13 @@ public class PROG_Cafe extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(toasted_Txt))
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cbx_Lettuce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(57, 57, 57))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(rbtn_Toasted)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(cbx_Lettuce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(44, 44, 44)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbx_Cheese, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -190,15 +200,15 @@ public class PROG_Cafe extends javax.swing.JFrame {
                                         .addComponent(rbtn_NonToasted, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(orderSummary_Txt)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(29, 29, 29)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(specialInstructions_txt)
                                         .addGap(17, 17, 17)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -208,10 +218,9 @@ public class PROG_Cafe extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BreadChoiceText, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(cbx_BellPeppers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(26, 26, 26)))
+                        .addGap(99, 99, 99)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cmb_BreadChoices, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -241,22 +250,15 @@ public class PROG_Cafe extends javax.swing.JFrame {
                             .addComponent(cmb_BreadChoices, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(129, 129, 129))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(cbx_Lettuce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(cbx_Cheese, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(cbx_BellPeppers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(cbx_Tomatoe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(25, 25, 25)))
+                        .addGap(184, 184, 184)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cbx_Cheese, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbx_BellPeppers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbx_Lettuce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbx_Tomatoe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(toasted_Txt)
                     .addComponent(rbtn_Toasted)
@@ -280,53 +282,88 @@ public class PROG_Cafe extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_SavetoTextFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SavetoTextFileActionPerformed
-        
+        saveOrder();
     }//GEN-LAST:event_btn_SavetoTextFileActionPerformed
 
     private void btn_OrderSummaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_OrderSummaryActionPerformed
-        
+        generateOrderSummary();
     }//GEN-LAST:event_btn_OrderSummaryActionPerformed
+
+    private void display_MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_display_MenuActionPerformed
+        generateOrderSummary();
+    }//GEN-LAST:event_display_MenuActionPerformed
+
+    private void saveMenu_ItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenu_ItemActionPerformed
+      saveOrder();
+    }//GEN-LAST:event_saveMenu_ItemActionPerformed
 
     // Logic to generate the order summary
     private void generateOrderSummary()
     {
-         try
-        {
-             String mainIngredient = cmb_MainIngredient.getSelectedItem().toString();
-             String bread = cmb_BreadChoices.getSelectedItem().toString();
-             
-             StringBuilder toppings = new StringBuilder();
-                if (cbx_Lettuce.isSelected()) toppings.append("Lettuce, ");
-                if (cbx_Cheese.isSelected()) toppings.append("Cheese, ");
-                if (cbx_BellPeppers.isSelected()) toppings.append("Bell Peppers, ");
-                if (cbx_Tomatoe.isSelected()) toppings.append("Tomatoe, ");
-                
-                  if(toppings.length() > 0)
-                     toppings.setLength(toppings.length() - 2); // remove trailing comma
-                  
-                  
-              boolean isToasted =   rbtn_Toasted.isSelected();
-              
-              String instructions = txtArea_SpecialInstructions.getText();
-              
-              String summary = String.format("Bread: %s\nMain Ingredient: %s\nToppings: %s\nToasted: %s\nSpecial Instructions: %s",
-                                                                    bread,  mainIngredient, toppings.toString(), (isToasted ? "Yes" : "No"),   instructions             
-                                                                );
-              
-              txtArea_Summary.setText(summary);
-             
-        
+        try{
+                String mainIngredient = cmb_MainIngredient.getSelectedItem().toString();
+                String bread = cmb_BreadChoices.getSelectedItem().toString();
+            StringBuilder toppings = new StringBuilder();
+            if (cbx_Lettuce.isSelected()) {
+                toppings.append("Lettuce, ");
+            }
+
+            if (cbx_Cheese.isSelected()) {
+                toppings.append("Cheese, ");
+            }
+
+            if (cbx_BellPeppers.isSelected()) {
+                toppings.append("Bell Peppers, ");
+            }
+
+            if (cbx_Tomatoe.isSelected())
+                toppings.append("Tomatoe, ");
+            
+            if (toppings.length() > 0) {
+                toppings.setLength(toppings.length() - 2);
+            }
+
+            boolean isToasted = rbtn_Toasted.isSelected(); 
+            
+            String instructions = txtArea_SpecialInstructions.getText();
+            
+            String summary = String.format("Bread: %s\nMain Ingredient: %s\nToppings: %s\nToasted: %s\nSpecial Instructions: %s",
+                                                                      bread,
+                                                                       mainIngredient,
+                                                                       toppings.toString(),
+                                                                       (isToasted ? "Yes" : "No"),
+                                                                       instructions);
+            
+            txtArea_Summary.setText(summary);
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
-            JOptionPane.showMessageDialog(null, "Error generating order summary: " + ex.getMessage());
+           JOptionPane.showMessageDialog(null, "Error generating order summary: " + ex.getMessage());  
         }
+      
     }
     
     //Logic to save the order summary to a text file
     private void saveOrder()
     {
-    
+        String summary = txtArea_Summary.getText();
+        if(summary.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please generate an order summary first!");
+            return;
+            }
+        String dateTime = new java.text.SimpleDateFormat("yyyyMMdd_HHmmss_SSS").format(new java.util.Date());
+        
+        String fileName = "order_" + dateTime + ".txt";
+        
+        try(FileWriter writer = new FileWriter(fileName))
+        {
+            writer.write(summary);
+            JOptionPane.showMessageDialog(this, "Order saved successfully!\nFile: " + fileName);
+        }
+        catch(IOException ex)
+                {
+                    JOptionPane.showMessageDialog(this, "Error saving order to the text file: " + ex.getMessage());
+                }
     }
     
     
@@ -379,7 +416,7 @@ public class PROG_Cafe extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbx_Tomatoe;
     private javax.swing.JComboBox<String> cmb_BreadChoices;
     private javax.swing.JComboBox<String> cmb_MainIngredient;
-    private javax.swing.JMenuItem displayMenu_Item;
+    private javax.swing.JMenuItem displayMenu;
     private javax.swing.JMenu display_Menu;
     private javax.swing.JMenu file_Menu;
     private javax.swing.JLabel jLabel1;
