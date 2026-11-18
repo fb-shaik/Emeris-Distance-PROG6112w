@@ -1,4 +1,4 @@
-# PROG6112 Exam Cheatsheet & Reference Repository
+# PROG6112 Mock Exam Guide & Reference Repository
 
 * **Author:** Sachin Mahabeer
 * **GitHub Username:** `SMahabeer07`
