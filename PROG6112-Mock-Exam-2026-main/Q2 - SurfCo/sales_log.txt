@@ -1,0 +1,7 @@
+SALES REPORT
+******************************
+Total Sales: 3150
+Average Sales: 350
+Sales over target: 3
+Sales under target: 6
+******************************
